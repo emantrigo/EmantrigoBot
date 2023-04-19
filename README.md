@@ -36,8 +36,9 @@
 ```
 Echo - Echoes a message back
 Ping - Replies with Pong!
-Quiz - Starts a Quiz Game
+TeamSelect - Use the emojis to select a team
 Farm - Starts a farming trip
+Random - Selects a random number between X and Y
 ```
 
 ## Utils

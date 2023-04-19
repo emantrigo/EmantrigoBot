@@ -53,7 +53,7 @@ module.exports = {
     });
 
     const collector = response.createMessageComponentCollector({
-      filter: (i) => i.user.id === interaction.user.id,
+      filter: (i) => true,
       time: 3_600_000,
       componentType: ComponentType.StringSelect,
     });

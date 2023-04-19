@@ -38,7 +38,6 @@ module.exports = {
     });
 
     const collector = response.createMessageComponentCollector({
-      filter: (i) => i.user.id === interaction.user.id,
       time: 3_600_000,
       componentType: ComponentType.Button,
     });
@@ -46,12 +45,19 @@ module.exports = {
     let n = 0;
 
     collector.on("collect", async (i) => {
-      n++;
-      await i.update({
-        content: `You are now farming!  ${n}`,
-        components: [row],
-        fetchReply: true,
-      });
+      if (i.user !== interaction.user) {
+        await i.reply({
+          content: "You can't use this button!",
+          ephemeral: true,
+        });
+      } else {
+        n++;
+        await i.update({
+          content: `You are now farming!  ${n}`,
+          components: [row],
+          fetchReply: true,
+        });
+      }
     });
   },
 };
