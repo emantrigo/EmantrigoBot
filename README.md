@@ -39,6 +39,7 @@ Ping - Replies with Pong!
 TeamSelect - Use the emojis to select a team
 Farm - Starts a farming trip
 Random - Selects a random number between X and Y
+Impersonate - Impersonates another user
 ```
 
 ## Utils
