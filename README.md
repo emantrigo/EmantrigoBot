@@ -49,3 +49,10 @@ User - Provides information about the user
 Ephemeral - Send an ephemeral message
 Followup - Replies with a message and then a followup
 ```
+
+## Administration
+
+```
+Kick - Kicks a user from the server.
+Ban - Bans a user from the server.
+```

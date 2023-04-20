@@ -1,5 +1,7 @@
 const { Events, Collection } = require("discord.js");
 
+const prisma = require("../db");
+
 module.exports = {
   name: Events.InteractionCreate,
   async execute(interaction) {
@@ -35,6 +37,21 @@ module.exports = {
 
       timestamps.set(interaction.user.id, now);
       setTimeout(() => timestamps.delete(interaction.user.id), cooldownAmount);
+
+      const prismaUser = await prisma.user.findUnique({
+        where: {
+          id: interaction.user.id,
+        },
+      });
+
+      if (!prismaUser) {
+        await prisma.user.create({
+          data: {
+            id: interaction.user.id,
+            username: interaction.user.username,
+          },
+        });
+      }
 
       try {
         await command.execute(interaction);

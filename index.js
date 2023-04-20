@@ -8,6 +8,10 @@ const {
 } = require("discord.js");
 const { token } = require("./config.json");
 
+const { PrismaClient } = require("@prisma/client");
+
+const prisma = new PrismaClient();
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -57,5 +61,12 @@ for (const file of eventFiles) {
     client.on(event.name, (...args) => event.execute(...args));
   }
 }
+
+client.on("messageCreate", (m) => {
+  if (m.author.bot) return;
+  if (m.content === "ping") {
+    m.reply("pong");
+  }
+});
 
 client.login(token);
