@@ -14,7 +14,8 @@
    {
      "token": "xxxxxxxxxxxxxxx",
      "clientId": "xxxxxxxxxxxxxxx",
-     "guildId": "xxxxxxxxxxxxxxx"
+     "guildId": "xxxxxxxxxxxxxxx",
+     "TRN": "tracker.gg api key"
    }
    ```
 
